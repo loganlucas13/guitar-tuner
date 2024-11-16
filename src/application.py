@@ -1,7 +1,4 @@
 from flask import Flask, render_template
-import os # for directory moving
-
-# global variables
 
 # create flask app
 app = Flask(__name__, static_folder='static')

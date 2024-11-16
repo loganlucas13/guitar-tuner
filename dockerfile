@@ -12,6 +12,7 @@ COPY . /app
 # get requirements from 'requirements.txt'
 RUN pip install --no-cache-dir -r requirements.txt
 
-EXPOSE 5000
+EXPOSE 8080
 
-CMD ["python", "src/application.py"]
+# run using flask
+CMD ["flask", "run", "--host=0.0.0.0", "--port=8080"]

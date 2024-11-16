@@ -8,4 +8,5 @@ services:
     volumes:
       - .:/app
     environment:
+      - FLASK_APP=src/application.py
       - FLASK_ENV=development # flask development mode

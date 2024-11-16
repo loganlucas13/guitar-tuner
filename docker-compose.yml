@@ -1,0 +1,11 @@
+version: '3.8'
+services:
+  web:
+    build:
+      context: . # from CWD
+    ports:
+      - "8080:8080"
+    volumes:
+      - .:/app
+    environment:
+      - FLASK_ENV=development # flask development mode

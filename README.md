@@ -8,6 +8,6 @@
 
 *NOTE: this installation guide uses Docker*
 
-1. Run the command `docker build -t guitar-tuner .` in the command line.
-2. Run the command `docker run -p 5001:5000 guitar-tuner` in the command line.
-3. Go to <a href="localhost:5001" target="_blank">localhost:5001</a> in your local browser.
+1. Clone this project onto your local machine.
+2. From the root directory of this project, run the command `docker compose up --build` in your terminal.
+3. Go to <a href="localhost:8080" target="_blank">localhost:8080</a> in your browser of choice.

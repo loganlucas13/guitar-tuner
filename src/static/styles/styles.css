@@ -8,6 +8,8 @@
     --background: #3d405b;
     --foreground: #2d3042;
     --text: #fdfffc;
+    --start: #81b29a;
+    --stop: #f46052;
 }
 
 body {
@@ -15,12 +17,14 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
 
     /* appearance: */
     font-family: RedHat;
     background-color: var(--background);
 }
 
+/* box at top of page */
 .title-box {
     /* sizing */
     max-width: fit-content;
@@ -28,7 +32,46 @@ body {
 
     /* appearance */
     background-color: var(--foreground);
-    border-radius: 0.5rem;
+    border-radius: 5%;
     color: var(--text);
     padding: 1rem;
+}
+
+/* all audio button customization */
+.audio-buttons {
+    /* positioning */
+    padding: 5rem;
+}
+.audio-buttons button {
+    /* sizing */
+    width: 15rem;
+    height: 5rem;
+
+    /* positioning */
+    margin: 0.5rem;
+
+    /* appearance */
+    border-radius: 1rem;
+    border: none;
+    color: var(--text);
+
+    /* animation */
+    will-change: transform;
+    transition: transform 0.25s ease-in-out;
+}
+.audio-buttons button:hover {
+    transform: scale(1.01);
+}
+.audio-buttons button img {
+    /* sizing */
+    width: 2rem;
+    height: 2rem;
+}
+#start-recording {
+    /* appearance */
+    background-color: var(--start);
+}
+#stop-recording {
+    /* appearance */
+    background-color: var(--stop);
 }

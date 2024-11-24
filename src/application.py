@@ -4,7 +4,12 @@ from flask import Flask, render_template
 app = Flask(__name__, static_folder='static')
 
 
-# opens 'page.html' on load
+# clears cache each page load
+@app.before_request
+def clearCache():
+    app.jinja_env.cache = {}
+
+# opens 'page.html' on load, which holds all functionality for the website
 @app.route('/')
 def home():
     return render_template("page.html")

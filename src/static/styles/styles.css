@@ -70,7 +70,7 @@ body {
 }
 .audio-buttons button:hover {
     /* appearance */
-    filter: brightness(95%);
+    filter: brightness(90%);
 }
 .audio-buttons button img {
     /* sizing */

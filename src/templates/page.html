@@ -4,21 +4,16 @@
 <head>
     <title>Guitar Tuner</title>
     <link rel="stylesheet" type= "text/css" href="{{ url_for('static', filename='styles/styles.css') }}">
+    <script src="{{ url_for('static', filename='scripts/microphone.js') }}" defer></script>
 </head>
 
 <body>
-    <div class="title-box">
-        <h1>guitar tuning</h1>
-    </div>
+    <h1 id="title-box">Webtuner</h1>
 
     <div class="audio-buttons">
-        <button id="start-recording">
-            <img src="{{ url_for('static', filename='assets/play-button.svg') }}">
-            <span>begin recording</span>
-        </button>
-        <button id="stop-recording">
-            <img src="{{ url_for('static', filename='assets/stop-button.svg') }}">
-            <span>stop recording</span>
+        <button id="enable-microphone">
+            <img src="{{ url_for('static', filename='assets/microphone-icon.svg') }}">
+            <span>Enable Microphone</span>
         </button>
     </div>
 </body>

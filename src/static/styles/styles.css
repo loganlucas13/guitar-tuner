@@ -7,6 +7,7 @@
     /* variables */
     --background: #3d405b;
     --foreground: #2d3042;
+    --shadow: #1c1e27;
     --text: #fdfffc;
     --start: #81b29a;
     --stop: #f46052;
@@ -20,12 +21,19 @@ body {
     flex-direction: column;
 
     /* appearance: */
-    font-family: RedHat;
     background-color: var(--background);
+    filter: drop-shadow(0.1rem 0.1rem 0.05rem var(--shadow));
+}
+
+/* to apply to all text on the page */
+* {
+    /* appearance */
+    font-family: RedHat;
+    text-shadow: 0.1rem 0.1rem 0.3rem var(--shadow);
 }
 
 /* box at top of page */
-.title-box {
+#title-box {
     /* sizing */
     max-width: fit-content;
     max-height: fit-content;
@@ -34,7 +42,7 @@ body {
     background-color: var(--foreground);
     border-radius: 5%;
     color: var(--text);
-    padding: 1rem;
+    padding: 1.5rem;
 }
 
 /* all audio button customization */
@@ -49,29 +57,30 @@ body {
 
     /* positioning */
     margin: 0.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
     /* appearance */
     border-radius: 1rem;
     border: none;
     color: var(--text);
-
-    /* animation */
-    will-change: transform;
-    transition: transform 0.25s ease-in-out;
+    font-size: 1.25rem;
 }
 .audio-buttons button:hover {
-    transform: scale(1.01);
+    filter: brightness(95%);
 }
 .audio-buttons button img {
     /* sizing */
-    width: 2rem;
-    height: 2rem;
-}
-#start-recording {
+    width: 1.5rem;
+    height: 1.5rem;
+
+    /* positioning */
+    padding-right: 1rem;
+
     /* appearance */
+    filter: drop-shadow(0.1rem 0.1rem 0.3rem black);
+}
+#enable-microphone {
     background-color: var(--start);
-}
-#stop-recording {
-    /* appearance */
-    background-color: var(--stop);
 }

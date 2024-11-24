@@ -22,7 +22,6 @@ body {
 
     /* appearance: */
     background-color: var(--background);
-    filter: drop-shadow(0.1rem 0.1rem 0.05rem var(--shadow));
 }
 
 /* to apply to all text on the page */
@@ -43,6 +42,7 @@ body {
     border-radius: 5%;
     color: var(--text);
     padding: 1.5rem;
+    box-shadow: 0 0.25rem 0.5rem var(--shadow);
 }
 
 /* all audio button customization */
@@ -66,8 +66,10 @@ body {
     border: none;
     color: var(--text);
     font-size: 1.25rem;
+    box-shadow: 0 0.25rem 0.5rem var(--shadow);
 }
 .audio-buttons button:hover {
+    /* appearance */
     filter: brightness(95%);
 }
 .audio-buttons button img {
@@ -79,8 +81,9 @@ body {
     padding-right: 1rem;
 
     /* appearance */
-    filter: drop-shadow(0.1rem 0.1rem 0.3rem black);
+    filter: drop-shadow(0.1rem 0.1rem 0.3rem var(--shadow));
 }
 #enable-microphone {
+    /* appearance: */
     background-color: var(--start);
 }

@@ -1,8 +1,12 @@
 from flask import Flask, render_template
+from flask_socketio import SocketIO, emit
+import detection
 
 # create flask app
 app = Flask(__name__, static_folder='static')
 
+# create socket for client-server connection
+socketio = SocketIO(app);
 
 # clears cache each page load
 @app.before_request
@@ -14,7 +18,12 @@ def clearCache():
 def home():
     return render_template("page.html")
 
+# each time an audio chunk is received, run calculations
+@socketio.on('audioChunk')
+def processAudioChunk(packet):
+    detection.analyzeData(packet)
+    emit('audio received')
 
 if __name__ == '__main__':
     # listens on all network interfaces
-    app.run(host='0.0.0.0', port=8080, debug=True)
+    socketio.run(app, host = '0.0.0.0', port=8080, debug=True)

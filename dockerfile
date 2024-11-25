@@ -18,4 +18,4 @@ EXPOSE 8080
 ENV FLASK_ENV=development
 
 # run using flask
-CMD ["flask", "run", "--host=0.0.0.0", "--port=8080"]
+CMD ["python", "src/application.py"]

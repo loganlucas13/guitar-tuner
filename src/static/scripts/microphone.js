@@ -40,8 +40,8 @@ function getMicrophonePermissions(enableMicrophoneButton) {
 }
 
 // builds the visualizer on the screen given an input device's audio stream
+// also sends data to the server in chunks
 function createVisualizer(stream) {
-
     const audioContext = new (window.AudioContext)();
 
     // sets up analyzer to parse data from audio context
@@ -51,6 +51,10 @@ function createVisualizer(stream) {
     // linking audioContext + analyzer
     const source = audioContext.createMediaStreamSource(stream);
     source.connect(analyzer);
+
+    // connects to localhost temporarily
+    // TODO: change once deployed
+    const socket = io.connect('localhost:8080');
 
     // visualizer on HTML page
     const visualizerDisplay = document.getElementById('visualizer');
@@ -65,6 +69,12 @@ function createVisualizer(stream) {
 
         // draws a single frame of the visualizer
         function animate() {
+            const audioData = {
+                data: Array.from(data),
+                sampleRate: audioContext.sampleRate
+            }
+            socket.emit('audioChunk', audioData); // sends data to server
+
             requestAnimationFrame(animate);
 
             // get data + smooth for cleaner visuals

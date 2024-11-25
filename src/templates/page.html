@@ -5,12 +5,15 @@
     <title>Guitar Tuner</title>
     <link rel="stylesheet" type= "text/css" href="{{ url_for('static', filename='styles/styles.css') }}">
     <script src="{{ url_for('static', filename='scripts/microphone.js') }}" defer></script>
+    <!-- socket script import -->
+    <script src="https://cdn.socket.io/4.0.1/socket.io.min.js"></script>
 </head>
 
 <body>
-    <h1 id="title-box">Webtuner</h1>
+    <h1 id="title-box">WebTuner</h1>
 
-    <div class="audio-buttons">
+    <div class="audio-display">
+        <canvas id="visualizer"></canvas>
         <button id="enable-microphone">
             <img src="{{ url_for('static', filename='assets/microphone-icon.svg') }}">
             <span>Enable Microphone</span>

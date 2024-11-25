@@ -10,7 +10,8 @@
 <body>
     <h1 id="title-box">WebTuner</h1>
 
-    <div class="audio-buttons">
+    <div class="audio-display">
+        <canvas id="visualizer"></canvas>
         <button id="enable-microphone">
             <img src="{{ url_for('static', filename='assets/microphone-icon.svg') }}">
             <span>Enable Microphone</span>

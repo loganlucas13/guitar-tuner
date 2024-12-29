@@ -21,8 +21,8 @@ def home():
 # each time an audio chunk is received, run calculations
 @socketio.on('audioChunk')
 def processAudioChunk(packet):
-    detection.analyzeData(packet)
-    emit('audio received')
+    closestNote = detection.analyzeData(packet)
+    emit('AUDIO PROCESSED', closestNote)
 
 if __name__ == '__main__':
     # listens on all network interfaces

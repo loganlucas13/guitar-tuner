@@ -1,4 +1,4 @@
-// adds all required event listeners after page has fully loaded
+// adds all required elements after page has fully loaded
 document.addEventListener("DOMContentLoaded", () => {
     const enableMicrophoneButton = document.getElementById('enable-microphone');
     enableMicrophoneButton.addEventListener('click', () => {
@@ -32,6 +32,10 @@ function getMicrophonePermissions(enableMicrophoneButton) {
         .then(function(stream) { // success
             console.log('Microphone enabled successfully!');
             enableMicrophoneButton.style.display = 'none'; // hide button
+
+            const noteDisplay = document.getElementById('note-display');
+            noteDisplay.style.display = 'flex'; // show note display (below visualizer)
+
             return stream;
         })
         .catch(function(error) { // failure
@@ -73,6 +77,7 @@ function createVisualizer(stream) {
                 data: Array.from(data),
                 sampleRate: audioContext.sampleRate
             }
+            console.log(audioData.data)
             socket.emit('audioChunk', audioData); // sends data to server
 
             requestAnimationFrame(animate);
@@ -136,6 +141,13 @@ function createVisualizer(stream) {
     else {
         draw();
     }
+
+    socket.on('AUDIO PROCESSED', (response) => {
+        if (response.closestNote) {
+            const noteDisplay = document.getElementById('note-display');
+            noteDisplay.innerText = `${response.closestNote}`;
+        }
+    })
 }
 
 // smooths data given a smoothing factor

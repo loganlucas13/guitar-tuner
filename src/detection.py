@@ -12,7 +12,24 @@ TUNINGS = {
 
 # takes packet in as input, parses, and performs all calculations
 def analyzeData(packet):
-    audio = np.array(packet['data'], dtype=np.float32)
+    audio = np.array(packet['data'], dtype=np.float32) - 128 / 128
     sampleRate = packet['sampleRate']
 
-    return
+    # fourier transform calculations
+    fftResult = np.fft.fft(audio)
+    magnitudeSpectrum = np.abs(fftResult)
+
+    # we only want to consider positive frequencies
+    halfLength = len(magnitudeSpectrum) // 2
+    magnitudeSpectrum = magnitudeSpectrum[:halfLength]
+    frequencies = np.fft.fftfreq(len(audio), d=1/sampleRate)[:halfLength]
+
+    index = np.argmax(magnitudeSpectrum);
+    frequency = frequencies[index]
+
+    closestNote = min(TUNINGS.keys(), key = lambda note: abs(TUNINGS[note] - frequency))
+    calculation = abs(TUNINGS[closestNote] - frequency)
+
+    return {
+        'closestNote': closestNote,
+    }

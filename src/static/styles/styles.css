@@ -98,6 +98,16 @@ body {
     filter: drop-shadow(0.1rem 0.1rem 0.3rem var(--shadow));
 }
 #enable-microphone {
-    /* appearance: */
+    /* appearance */
     background-color: var(--start);
+}
+#note-display {
+    /* sizing */
+    max-width: fit-content;
+    max-height: fit-content;
+
+    /* appearance */
+    display: none; /* hides on page load */
+    color: var(--text);
+    padding: 1.5rem;
 }

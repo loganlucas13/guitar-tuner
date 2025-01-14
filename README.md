@@ -1,6 +1,6 @@
 <div align="center">
   <h1>
-    WebTuner
+    🎸 WebTuner
   </h1>
 </div>
 
@@ -22,5 +22,7 @@ _NOTE: this installation guide uses Docker_
 ## Preview!
 
 #### Startup
+<img width="1511" alt="image" src="https://github.com/user-attachments/assets/7722d469-5e88-4c0e-ae17-f823716d8cdf" />
 
 #### Live Audio Display
+<img width="1511" alt="image" src="https://github.com/user-attachments/assets/2237bb13-7763-4c03-ab9d-b2bd3c686f16" />
